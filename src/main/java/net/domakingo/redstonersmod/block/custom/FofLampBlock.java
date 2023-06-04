@@ -1,35 +1,65 @@
 package net.domakingo.redstonersmod.block.custom;
 
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RedstoneTorchBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.block.state.properties.Property;
 
 public class FofLampBlock extends Block {
-    public static final BooleanProperty LIT = BooleanProperty.create("lit");
+    public static final BooleanProperty LIT;
 
-    public FofLampBlock(Properties properties) {
-        super(properties);
+    public FofLampBlock(BlockBehaviour.Properties p_55657_) {
+        super(p_55657_);
+        this.registerDefaultState((BlockState)this.defaultBlockState().setValue(LIT, false));
     }
 
-    @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos blockPos,
-                                 Player player, InteractionHand hand, BlockHitResult result) {
-        if(!level.isClientSide() && hand == InteractionHand.MAIN_HAND) {
-            level.setBlock(blockPos, state.cycle(LIT), 3);
+    @Nullable
+    public BlockState getStateForPlacement(BlockPlaceContext p_55659_) {
+        return (BlockState)this.defaultBlockState().setValue(LIT, p_55659_.getLevel().hasNeighborSignal(p_55659_.getClickedPos()));
+    }
+
+    public void neighborChanged(BlockState p_55666_, Level p_55667_, BlockPos p_55668_, Block p_55669_, BlockPos p_55670_, boolean p_55671_) {
+        if (!p_55667_.isClientSide) {
+            boolean flag = (Boolean)p_55666_.getValue(LIT);
+            if (flag != p_55667_.hasNeighborSignal(p_55668_)) {
+                if (flag) {
+                    p_55667_.scheduleTick(p_55668_, this, 4);
+                } else {
+                    p_55667_.setBlock(p_55668_, (BlockState)p_55666_.cycle(LIT), 2);
+                }
+            }
         }
 
-        return super.use(state, level, blockPos, player, hand, result);
     }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(LIT);
+    public void tick(BlockState p_221937_, ServerLevel p_221938_, BlockPos p_221939_, RandomSource p_221940_) {
+        if ((Boolean)p_221937_.getValue(LIT) && !p_221938_.hasNeighborSignal(p_221939_)) {
+            p_221938_.setBlock(p_221939_, (BlockState)p_221937_.cycle(LIT), 2);
+        }
+
+    }
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_55673_) {
+        p_55673_.add(new Property[]{LIT});
+    }
+
+    static {
+        LIT = RedstoneTorchBlock.LIT;
     }
 }
+
+
+
+
+
+
+
