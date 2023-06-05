@@ -1,0 +1,44 @@
+{
+  "variants": {
+    "lit=true": {
+      "model": "redstoners:block/pink_led_on",
+
+      "facing=north": {
+        "model": "redstoners:block/pink_led_on"
+      },
+      "facing=south": {
+        "model": "redstoners:block/pink_led_on",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "redstoners:block/pink_led_on",
+        "y": 270
+      },
+      "facing=east": {
+        "model": "redstoners:block/pink_led_on",
+        "y": 90
+      }
+    },
+
+
+    "lit=false": {
+      "model": "redstoners:block/pink_led_off",
+
+      "facing=north": {
+        "model": "redstoners:block/pink_led_off"
+      },
+      "facing=south": {
+        "model": "redstoners:block/pink_led_off",
+        "y": 180
+      },
+      "facing=west": {
+        "model": "redstoners:block/pink_led_off",
+        "y": 270
+      },
+      "facing=east": {
+        "model": "redstoners:block/pink_led_off",
+        "y": 90
+      }
+    }
+  }
+}

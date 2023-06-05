@@ -43,6 +43,7 @@ public class RedstonersMod {
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if(event.getTab() == CreativeModeTabs.COLORED_BLOCKS) {
             event.accept(ModBlocks.FOF_LAMP_BLOCK);
+            event.accept(ModBlocks.PINK_LED_BLOCK);
         }
     }
 

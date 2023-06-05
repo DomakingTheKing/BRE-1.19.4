@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
-
 public class FofLampBlock extends Block {
     public static final BooleanProperty LIT;
 
@@ -56,10 +55,3 @@ public class FofLampBlock extends Block {
         LIT = RedstoneTorchBlock.LIT;
     }
 }
-
-
-
-
-
-
-

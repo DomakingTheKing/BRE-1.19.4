@@ -2,11 +2,11 @@ package net.domakingo.redstonersmod.block;
 
 import net.domakingo.redstonersmod.RedstonersMod;
 import net.domakingo.redstonersmod.block.custom.FofLampBlock;
+import net.domakingo.redstonersmod.block.custom.PinkLed;
 import net.domakingo.redstonersmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -23,7 +23,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> FOF_LAMP_BLOCK = registerBlock("fof_lamp_block",
             () -> new FofLampBlock(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS)
-                    .strength(0.3f).sound(SoundType.GLASS).lightLevel(state -> state.getValue(FofLampBlock.LIT) ? 15 : 0)));
+                    .strength(0.3f).sound(SoundType.GLASS).noOcclusion().lightLevel(state -> state.getValue(FofLampBlock.LIT) ? 15 : 0)));
+
+
+    public static final RegistryObject<Block> PINK_LED_BLOCK = registerBlock("pink_led_block",
+            () -> new PinkLed(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS)
+                    .strength(0.3f).sound(SoundType.GLASS).noOcclusion().lightLevel(state -> state.getValue(FofLampBlock.LIT) ? 15 : 0)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
