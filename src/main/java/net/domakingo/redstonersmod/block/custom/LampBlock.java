@@ -4,6 +4,9 @@ import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -12,14 +15,17 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.BlockHitResult;
 
-public class FofLampBlock extends Block {
+public class LampBlock extends Block {
     public static final BooleanProperty LIT;
+    public static final IntegerProperty VALUE = IntegerProperty.create("value", 1, 16);
 
-    public FofLampBlock(BlockBehaviour.Properties p_55657_) {
+    public LampBlock(BlockBehaviour.Properties p_55657_) {
         super(p_55657_);
-        this.registerDefaultState((BlockState)this.defaultBlockState().setValue(LIT, false));
+        this.registerDefaultState((BlockState)this.defaultBlockState().setValue(LIT, false).setValue(VALUE, 1));
     }
 
     @Nullable
@@ -49,17 +55,20 @@ public class FofLampBlock extends Block {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_55673_) {
-        p_55673_.add(new Property[]{LIT});
+        p_55673_.add(new Property[]{LIT, VALUE});
+    }
+
+    @Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (!level.isClientSide) {
+            int currentValue = state.getValue(VALUE);
+            int newValue = currentValue == 16 ? 1 : currentValue + 1;
+            level.setBlock(pos, state.setValue(VALUE, newValue), 2);
+        }
+        return InteractionResult.SUCCESS;
     }
 
     static {
         LIT = RedstoneTorchBlock.LIT;
     }
 }
-
-
-
-
-
-
-

@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "lit=true": { "model":  "redstoners:block/fof_lamp_on" },
-    "lit=false": { "model":  "redstoners:block/fof_lamp_off" }
-  }
-}

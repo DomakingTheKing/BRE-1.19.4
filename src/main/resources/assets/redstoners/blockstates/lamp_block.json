@@ -1,0 +1,45 @@
+{
+  "variants": {
+
+    "lit=true": {
+
+      "model": "redstoners:block/lamps/on/silver",
+
+      "value=1": { "model":  "redstoners:block/lamps/on/magenta_lamp_on" },
+      "value=2": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=3": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=4": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=5": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=6": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=7": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=8": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=9": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=10": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=11": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=12": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=13": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=14": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=15": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+      "value=16": { "model":  "redstoners:block/lamps/on/_lamp_on" },
+
+
+    "lit=false": {
+      "value=1": { "model":  "redstoners:block/lamps/off/magenta_lamp_on" },
+      "value=2": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=3": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=4": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=5": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=6": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=7": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=8": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=9": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=10": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=11": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=12": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=13": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=14": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=15": { "model":  "redstoners:block/lamps/off/_lamp_on" },
+      "value=16": { "model":  "redstoners:block/lamps/off/_lamp_on" }
+
+    }
+  }
