@@ -21,7 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class LampBlock extends Block {
     public static final BooleanProperty LIT;
-    public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 1, 16);
+    public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 1, 15);
 
     public LampBlock(BlockBehaviour.Properties p_55657_) {
         super(p_55657_);
@@ -62,7 +62,7 @@ public class LampBlock extends Block {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
             int currentValue = state.getValue(TEXTURE);
-            int newValue = currentValue == 16 ? 1 : currentValue + 1;
+            int newValue = currentValue == 15 ? 1 : currentValue + 1;
             level.setBlock(pos, state.setValue(TEXTURE, newValue), 2);
         }
         return InteractionResult.SUCCESS;
