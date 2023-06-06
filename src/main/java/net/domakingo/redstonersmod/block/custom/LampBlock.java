@@ -3,14 +3,17 @@ package net.domakingo.redstonersmod.block.custom;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RedstoneTorchBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -61,12 +64,24 @@ public class LampBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
-            int currentValue = state.getValue(TEXTURE);
-            int newValue = currentValue == 15 ? 1 : currentValue + 1;
-            level.setBlock(pos, state.setValue(TEXTURE, newValue), 2);
+            if (player.getItemInHand(hand).isEmpty()) {
+                int currentValue = state.getValue(TEXTURE);
+                int newValue = currentValue == 15 ? 1 : currentValue + 1;
+                level.setBlock(pos, state.setValue(TEXTURE, newValue), 2);
+            } else {
+                BlockPos placePos = pos.relative(hit.getDirection());
+                BlockPlaceContext context = new BlockPlaceContext(player, hand, player.getItemInHand(hand), hit);
+                if (player.getItemInHand(hand).getItem() instanceof BlockItem) {
+                    BlockItem blockItem = (BlockItem) player.getItemInHand(hand).getItem();
+                    blockItem.place(context);
+                    SoundType soundType = blockItem.getBlock().getSoundType(blockItem.getBlock().defaultBlockState(), level, placePos, player);
+                    level.playSound(null, placePos, soundType.getPlaceSound(), SoundSource.BLOCKS, (soundType.getVolume() + 1.0F) / 2.0F, soundType.getPitch() * 0.8F);
+                }
+            }
         }
         return InteractionResult.SUCCESS;
     }
+
 
     static {
         LIT = RedstoneTorchBlock.LIT;
