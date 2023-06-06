@@ -1,0 +1,94 @@
+{
+	"variants": {
+		"lit=true,texture=1": {
+			"model": "redstoners:block/lamps/on/blue_lamp"
+		},
+		"lit=true,texture=2": {
+			"model": "redstoners:block/lamps/on/fluorescent_lamp"
+		},
+		"lit=true,texture=3": {
+			"model": "redstoners:block/lamps/on/fuchsia_lamp"
+		},
+		"lit=true,texture=4": {
+			"model": "redstoners:block/lamps/on/galaxy_lamp"
+		},
+		"lit=true,texture=5": {
+			"model": "redstoners:block/lamps/on/green_lamp"
+		},
+		"lit=true,texture=6": {
+			"model": "redstoners:block/lamps/on/light_blue_lamp"
+		},
+		"lit=true,texture=7": {
+			"model": "redstoners:block/lamps/on/lilac_lamp"
+		},
+		"lit=true,texture=8": {
+			"model": "redstoners:block/lamps/on/magenta_lamp"
+		},
+		"lit=true,texture=9": {
+			"model": "redstoners:block/lamps/on/orange_lamp"
+		},
+		"lit=true,texture=10": {
+			"model": "redstoners:block/lamps/on/peach_lamp"
+		},
+		"lit=true,texture=11": {
+			"model": "redstoners:block/lamps/on/purple_lamp"
+		},
+		"lit=true,texture=12": {
+			"model": "redstoners:block/lamps/on/red_lamp"
+		},
+		"lit=true,texture=13": {
+			"model": "redstoners:block/lamps/on/turquoise_lamp"
+		},
+		"lit=true,texture=14": {
+			"model": "redstoners:block/lamps/on/yellow_lamp"
+		},
+		"lit=true,texture=15": {
+			"model": "redstoners:block/lamps/on/silver_lamp"
+		},
+		"lit=false,texture=1": {
+			"model": "redstoners:block/lamps/on/blue_lamp"
+		},
+		"lit=false,texture=2": {
+			"model": "redstoners:block/lamps/on/fluorescent_lamp"
+		},
+		"lit=false,texture=3": {
+			"model": "redstoners:block/lamps/on/fuchsia_lamp"
+		},
+		"lit=false,texture=4": {
+			"model": "redstoners:block/lamps/on/galaxy_lamp"
+		},
+		"lit=false,texture=5": {
+			"model": "redstoners:block/lamps/on/green_lamp"
+		},
+		"lit=false,texture=6": {
+			"model": "redstoners:block/lamps/on/light_blue_lamp"
+		},
+		"lit=false,texture=7": {
+			"model": "redstoners:block/lamps/on/lilac_lamp"
+		},
+		"lit=false,texture=8": {
+			"model": "redstoners:block/lamps/on/magenta_lamp"
+		},
+		"lit=false,texture=9": {
+			"model": "redstoners:block/lamps/on/orange_lamp"
+		},
+		"lit=false,texture=10": {
+			"model": "redstoners:block/lamps/on/peach_lamp"
+		},
+		"lit=false,texture=11": {
+			"model": "redstoners:block/lamps/on/purple_lamp"
+		},
+		"lit=false,texture=12": {
+			"model": "redstoners:block/lamps/on/red_lamp"
+		},
+		"lit=false,texture=13": {
+			"model": "redstoners:block/lamps/off/turquoise_lamp"
+		},
+		"lit=false,texture=14": {
+			"model": "redstoners:block/lamps/off/yellow_lamp"
+		},
+		"lit=false,texture=15": {
+			"model": "redstoners:block/lamps/off/silver_lamp"
+		}
+	}
+}
